@@ -1,3 +1,2 @@
 # kanban-task-board
-
-## A Frontend mentor Premium Guru Challenge
+A Frontend mentor Premium Guru Challenge
