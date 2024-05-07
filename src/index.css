@@ -4,6 +4,24 @@
 
 @layer base {
   :root {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+
+    --accent-purple: 242 48% 58%;
+    --accent-purple-hover: 242 100% 82%;
+
+    --dark: 237 100% 4%;
+    --dark-2: 235 16% 15%;
+    --dark-3: 235 12% 19%;
+    --dark-4: 236 11% 27%;
+
+    --light-grey: 216 15% 57%;
+    --light-grey-2: 221 69% 94%;
+    --light-grey-3: 220 69% 97%;
+
+    --warning: 0 78% 63%;
+    --waring-hover: 0 100% 80%;
+
+    /* For Shadcn/ui */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 

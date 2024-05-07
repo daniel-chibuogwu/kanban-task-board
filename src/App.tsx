@@ -1,34 +1,12 @@
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-
 function App() {
   return (
-    <div className="w-full h-screen bg-sky-400 flex justify-center items-center">
-      <AlertDialog>
-        <AlertDialogTrigger>Open</AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+    <div className="flex h-screen w-full items-center justify-center">
+      <div className="space-y-4">
+        <h1 className="text-accent-purple text-2xl font-bold">Heading XL</h1>
+        <h1 className="text-lg font-bold">Heading L</h1>
+        <h1 className="font-bold ">Heading M</h1>
+        <h1 className="text-light-grey text-xs font-bold">Heading S</h1>
+      </div>
     </div>
   );
 }
