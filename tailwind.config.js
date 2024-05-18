@@ -9,6 +9,13 @@ module.exports = {
   ],
   prefix: '',
   theme: {
+    fontSize: {
+      xs: ['0.75rem', '0.9375rem'], // 12px , 15px
+      sm: ['0.8125rem', '1.4375rem'], // 13px , 23px
+      base: ['0.9375rem', '1.1875rem'], // 15px , 19px
+      lg: ['1.125rem', '1.4375rem'], // 18px , 23px
+      xl: ['1.5rem', '1.875rem'], // 24px , 30px
+    },
     container: {
       center: true,
       padding: '2rem',
@@ -18,15 +25,6 @@ module.exports = {
     },
     extend: {
       colors: {
-        'accent-purple': {
-          DEFAULT: 'hsl(var(--accent-purple))',
-          hover: 'hsl(var(--accent-purple-hover))',
-        },
-        'light-grey': {
-          DEFAULT: 'hsl(var(--light-grey))',
-          2: 'hsl(var(--light-grey-2))',
-          3: 'hsl(var(--light-grey-3))',
-        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -35,6 +33,7 @@ module.exports = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
+          hover: 'hsl(var(--primary-hover))',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
@@ -59,6 +58,7 @@ module.exports = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
+          header: 'hsl(var(--card-header))',
         },
       },
       borderRadius: {
