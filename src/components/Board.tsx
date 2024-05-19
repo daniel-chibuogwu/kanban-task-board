@@ -1,27 +1,20 @@
 import { Button } from '@/components/ui/Button';
-import LogoDark from '@/assets/logo-dark.svg';
-import KebabMenuIcon from '@/assets/icon-vertical-ellipsis.svg';
+import BoardHeader from '@/components/BoardHeader';
+import { type NavBtnProps } from '@/lib/types';
 
-export default function Board() {
+export default function Board({ showNav, setShowNav }: NavBtnProps) {
   return (
-    <main className="relative z-10 grid h-svh bg-background">
-      {/* BOARD HEADER */}
-      <header className="fixed inset-x-0 top-0 flex h-24 items-center border-b border-b-border bg-white pl-6 pr-8">
-        <div className="mr-8 flex h-full items-center border-r border-border pr-8">
-          <LogoDark />
+    <main className="relative z-20 h-svh overflow-auto bg-background">
+      <BoardHeader showNav={showNav} setShowNav={setShowNav} />
+      <div className=" grid h-full place-content-center">
+        <div className="flex flex-col items-center justify-center">
+          <p className="text-center text-lg font-bold text-foreground">
+            This board is empty. Create a new column to get started.
+          </p>
+          <Button className="mt-6" onClick={() => setShowNav(!showNav)}>
+            + Add New Column
+          </Button>
         </div>
-        <h1 className="text-card-header text-xl font-bold">Platform Launch</h1>
-        <Button className="ml-auto mr-6" disabled={true}>
-          + Add New Column
-        </Button>
-        <KebabMenuIcon />
-      </header>
-      {/* BOARD BODY */}
-      <div className="flex flex-col items-center justify-center">
-        <p className="text-center text-lg font-bold text-foreground">
-          This board is empty. Create a new column to get started.
-        </p>
-        <Button className="mt-7">+ Add New Column</Button>
       </div>
     </main>
   );
