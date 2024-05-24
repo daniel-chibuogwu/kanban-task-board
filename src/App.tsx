@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Board from '@/components/Board';
 import LogoDark from '@/assets/logo-dark.svg';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [showSideNav, setShowSideNav] = useState(true);
