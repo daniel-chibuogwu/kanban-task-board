@@ -9,13 +9,6 @@ module.exports = {
   ],
   prefix: '',
   theme: {
-    fontSize: {
-      xs: ['0.75rem', '0.9375rem'], // 12px , 15px
-      sm: ['0.8125rem', '1.4375rem'], // 13px , 23px
-      base: ['0.9375rem', '1.1875rem'], // 15px , 19px
-      lg: ['1.125rem', '1.4375rem'], // 18px , 23px
-      xl: ['1.5rem', '1.875rem'], // 24px , 30px
-    },
     container: {
       center: true,
       padding: '2rem',
@@ -24,6 +17,13 @@ module.exports = {
       },
     },
     extend: {
+      fontSize: {
+        xs: ['0.75rem', '0.9375rem'], // 12px , 15px
+        sm: ['0.8125rem', '1.4375rem'], // 13px , 23px
+        base: ['0.9375rem', '1.1875rem'], // 15px , 19px
+        lg: ['1.125rem', '1.4375rem'], // 18px , 23px
+        xl: ['1.5rem', '1.875rem'], // 24px , 30px
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
