@@ -15,9 +15,7 @@ export default function Board({ showSideBar, setShowSideBar }: Props) {
           <p className="text-center text-lg text-foreground">
             This board is empty. Create a new column to get started.
           </p>
-          <Button className="mt-8" onClick={() => setShowSideBar(!showSideBar)}>
-            + Add New Column
-          </Button>
+          <Button className="mt-8">+ Add New Column</Button>
         </div>
       </div>
     </main>

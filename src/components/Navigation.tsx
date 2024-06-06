@@ -42,7 +42,7 @@ export function Navigation({ showSideBar, setShowSideBar }: Props) {
           <p className="ms-8 text-xs tracking-[2.5px]">ALL BOARDS (3)</p>
           <ul className="mt-5 text-base">
             {boards.map(board => (
-              <li className="last:text-primary">
+              <li key={board.title} className="last:text-primary">
                 <button className="flex w-full items-center gap-4 rounded-e-full py-3.5 pl-8 focus:bg-primary focus:text-white">
                   <BoardIcon className="fill-current" />
                   {board.title}
@@ -53,7 +53,7 @@ export function Navigation({ showSideBar, setShowSideBar }: Props) {
         </div>
         {/* Hide side bar and Toggle light/dark mode */}
         <div className="ms-6 space-y-2 self-end">
-          <div className="flex items-center justify-center gap-6 rounded-lg bg-background py-3.5">
+          <div className="flex scale-[0.5] items-center justify-center gap-6 rounded-lg bg-background py-3.5">
             <LightThemeIcon />
             <Switch />
             <DarkThemeIcon />
