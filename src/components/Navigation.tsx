@@ -53,7 +53,7 @@ export function Navigation({ showSideBar, setShowSideBar }: Props) {
         </div>
         {/* Hide side bar and Toggle light/dark mode */}
         <div className="ms-6 space-y-2 self-end">
-          <div className="flex scale-[0.5] items-center justify-center gap-6 rounded-lg bg-background py-3.5">
+          <div className="flex items-center justify-center gap-6 rounded-lg bg-background py-3.5">
             <LightThemeIcon />
             <Switch />
             <DarkThemeIcon />
