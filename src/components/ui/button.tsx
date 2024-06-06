@@ -55,7 +55,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
         const ripple = document.createElement('span');
         ripple.style.width = ripple.style.height = `${dia}px`;
-        ripple.className = 'absolute rounded-full bg-black/20 animate-ripple';
+        ripple.className = 'absolute rounded-full bg-primary/40 animate-ripple';
         // Substracting the diameter to center the span on the pointer
         ripple.style.left = `${x - dia / 2}px`;
         ripple.style.top = `${y - dia / 2}px`;

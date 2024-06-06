@@ -1,10 +1,12 @@
 import { cn } from '@/lib/utils';
+import { Switch } from '@/components/ui/switch';
+import { Button } from '@/components/ui/Button';
 import BoardIcon from '@/components/Icons/BoardIcon';
 import LogoDark from '@/assets/logo-dark.svg';
+import ShowSideBarIcon from '@/assets/icon-show-sidebar.svg';
 import HideSideBarIcon from '@/assets/icon-hide-sidebar.svg';
 import LightThemeIcon from '@/assets/icon-light-theme.svg';
 import DarkThemeIcon from '@/assets/icon-dark-theme.svg';
-import { Switch } from '@/components/ui/switch';
 
 type Props = {
   showSideBar: boolean;
@@ -61,12 +63,26 @@ export function Navigation({ showSideBar, setShowSideBar }: Props) {
           <button
             className="flex w-full items-center gap-3.5 py-3.5 pl-2"
             onClick={() => setShowSideBar(!showSideBar)}
+            aria-label="Hide Sidebar"
+            title="Hide Sidebar"
           >
             <HideSideBarIcon />
             Hide Sidebar
           </button>
         </div>
       </div>
+      {/* Fixed Show Side Nav button */}
+      <Button
+        className={cn(
+          'fixed bottom-8 left-0 z-50 inline-flex rounded-s-none pl-[18px]  pr-[22px] transition-all delay-200 duration-500',
+          { '-translate-x-full opacity-0': showSideBar },
+        )}
+        aria-label="Show Sidebar"
+        title="Show Sidebar"
+        onClick={() => setShowSideBar(!showSideBar)}
+      >
+        <ShowSideBarIcon />
+      </Button>
     </aside>
   );
 }
