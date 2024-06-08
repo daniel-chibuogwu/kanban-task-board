@@ -1,18 +1,15 @@
 import { useState } from 'react';
-import { ThemeProvider } from '@/store/theme-provider';
 import Board from '@/components/Board';
-import { SideBar } from '@/components/SideBar';
+import { Navigation } from '@/components/Navigation';
 
 function App() {
   const [showSideBar, setShowSideBar] = useState(true);
 
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="kanban-theme">
-      <div className="relative flex min-h-screen overflow-hidden">
-        <SideBar showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
-        <Board showSideBar={showSideBar} />
-      </div>
-    </ThemeProvider>
+    <div className="relative flex min-h-screen overflow-hidden">
+      <Navigation showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
+      <Board showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
+    </div>
   );
 }
 
