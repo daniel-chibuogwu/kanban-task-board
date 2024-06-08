@@ -1,22 +1,24 @@
-import LogoDark from '@/assets/logo-dark.svg';
+import { Logo } from '@/components/Icons/Logo';
 import KebabMenuIcon from '@/assets/icon-vertical-ellipsis.svg';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
+import { useTheme } from '@/store/theme-provider';
 
 type Props = {
   showSideBar: boolean;
 };
 
 export default function BoardHeader({ showSideBar }: Props) {
+  const { theme } = useTheme();
   return (
-    <header className="sticky inset-x-0 top-0 flex h-24 shrink-0 items-center border-b border-b-border bg-white pl-6 pr-8">
+    <header className="sticky inset-x-0 top-0 flex h-24 shrink-0 items-center border-b border-b-border bg-secondary pl-6 pr-8">
       <div
         className={cn(
           'mr-8 flex h-full items-center border-r border-border pr-8',
           { hidden: showSideBar },
         )}
       >
-        <LogoDark />
+        <Logo theme={theme} />
       </div>
 
       <h1 className="text-xl font-bold text-card-header">Platform Launch</h1>

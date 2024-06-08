@@ -3,10 +3,9 @@ import BoardHeader from '@/components/BoardHeader';
 
 type Props = {
   showSideBar: boolean;
-  setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function Board({ showSideBar, setShowSideBar }: Props) {
+export default function Board({ showSideBar }: Props) {
   return (
     <main className="relative z-20 flex h-svh flex-1 flex-col overflow-auto bg-background">
       <BoardHeader showSideBar={showSideBar} />
