@@ -37,18 +37,15 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
-  rippleColor?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    { className, variant, size, asChild = false, rippleColor, ...props },
-    ref,
-  ) => {
+  ({ onClick, className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button';
     const buttonRef = useRef<HTMLButtonElement>(null);
 
-    const showRipple = (event: React.MouseEvent<HTMLButtonElement>) => {
+    // Adding my own google like ripple animation on buttons
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
       const button = buttonRef.current;
       if (button) {
         const rect = button.getBoundingClientRect();
@@ -58,7 +55,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
         const ripple = document.createElement('span');
         ripple.style.width = ripple.style.height = `${dia}px`;
-        ripple.className = `absolute rounded-full ${rippleColor || 'bg-primary/40'} animate-ripple`;
+        ripple.className = 'absolute rounded-full bg-black/20 animate-ripple';
         // Substracting the diameter to center the span on the pointer
         ripple.style.left = `${x - dia / 2}px`;
         ripple.style.top = `${y - dia / 2}px`;
@@ -69,13 +66,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           ripple.remove();
         });
       }
-    };
 
+      onClick && onClick(event);
+    };
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref || buttonRef}
-        onMouseDown={showRipple}
+        onClick={handleClick}
         {...props}
       />
     );
