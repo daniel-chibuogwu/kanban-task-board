@@ -38,6 +38,10 @@
     --ring: 242 48% 58%;
 
     --radius: 0.5rem;
+
+    --first-column: 193 75% 59%;
+    --second-column: 249 83% 70%;
+    --third-column: 154 68% 64%;
   }
 
   /* This works because of CSS Cascading nature - when .dark gets applied on the root it replace all the custom properties with this one */
