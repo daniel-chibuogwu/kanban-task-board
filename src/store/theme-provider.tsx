@@ -40,13 +40,12 @@ export function ThemeProvider({
 
     root.classList.add(theme);
   }, [theme]);
-  // Automatically toogle light or dark mode based on users preferences
+  // Automatically toogle light or dark mode based on users preferences. Only runs when user toggle device light or dark mode
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
     const handleChange = (event: MediaQueryListEvent) => {
       setTheme(event.matches ? 'dark' : 'light');
-      console.log(event, 'media query don change oo!');
     };
 
     mediaQuery.addEventListener('change', handleChange);

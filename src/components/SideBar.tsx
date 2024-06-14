@@ -1,3 +1,9 @@
+import { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
+import type { SideBarState } from '@/lib/types';
+import { sideBarStateStorageKey } from '@/lib/contants';
+
+import { useTheme } from '@/store/theme-provider';
 import { Switch } from '@/components/ui/switch';
 import { Button } from '@/components/ui/Button';
 import BoardIcon from '@/components/Icons/BoardIcon';
@@ -5,14 +11,11 @@ import ShowSideBarIcon from '@/assets/icon-show-sidebar.svg';
 import HideSideBarIcon from '@/assets/icon-hide-sidebar.svg';
 import LightThemeIcon from '@/assets/icon-light-theme.svg';
 import DarkThemeIcon from '@/assets/icon-dark-theme.svg';
-import { cn } from '@/lib/utils';
-import { useState } from 'react';
-import { useTheme } from '@/store/theme-provider';
 import { Logo } from '@/components/Icons/Logo';
 
 type Props = {
-  showSideBar: boolean;
-  setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
+  sideBarState: SideBarState;
+  setSideBarState: React.Dispatch<React.SetStateAction<SideBarState>>;
 };
 
 const boards = [
@@ -22,14 +25,22 @@ const boards = [
   { title: '+ Create New Board' },
 ];
 
-export function SideBar({ showSideBar, setShowSideBar }: Props) {
+export function SideBar({ sideBarState, setSideBarState }: Props) {
   const [currentBoard, setCurrentBoard] = useState(boards[0].title);
   const { theme, setTheme } = useTheme();
+
+  // Persisting the Side bar state after refresh
+  useEffect(() => {
+    localStorage.setItem(sideBarStateStorageKey, sideBarState);
+  }, [sideBarState]);
+
+  const sideBarIsOpen = sideBarState === 'open';
+
   return (
     <aside
       className={cn(
         'h-screen w-[300px] border-r border-border bg-secondary py-8 pr-6 transition-[margin] duration-700 ease-in-out',
-        { '-ml-[300px]': !showSideBar },
+        { '-ml-[300px]': !sideBarIsOpen },
       )}
       style={{ transitionTimingFunction: 'cubic-bezier(0.65, 0.05, 0.36, 1)' }}
     >
@@ -37,7 +48,7 @@ export function SideBar({ showSideBar, setShowSideBar }: Props) {
       <div
         className={cn(
           'grid h-full grid-rows-[repeat(2,_auto)_1fr] transition-opacity duration-700 ease-in-out',
-          { 'opacity-0': !showSideBar },
+          { 'opacity-0': !sideBarIsOpen },
         )}
       >
         <div className="ms-8">
@@ -86,7 +97,7 @@ export function SideBar({ showSideBar, setShowSideBar }: Props) {
           </div>
           <button
             className="flex w-full items-center gap-3.5 py-3.5 pl-2"
-            onClick={() => setShowSideBar(false)}
+            onClick={() => setSideBarState('close')}
             aria-label="Hide Sidebar"
             title="Hide Sidebar"
           >
@@ -99,11 +110,11 @@ export function SideBar({ showSideBar, setShowSideBar }: Props) {
       <Button
         className={cn(
           'fixed bottom-8 left-0 z-50 inline-flex rounded-s-none pl-[18px] pr-[22px] transition-all duration-500',
-          { '-translate-x-full opacity-0': showSideBar },
+          { '-translate-x-full opacity-0': sideBarIsOpen },
         )}
         aria-label="Show Sidebar"
         title="Show Sidebar"
-        onClick={() => setShowSideBar(true)}
+        onClick={() => setSideBarState('open')}
       >
         <ShowSideBarIcon />
       </Button>
