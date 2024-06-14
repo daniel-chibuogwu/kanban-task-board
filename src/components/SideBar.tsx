@@ -96,7 +96,7 @@ export function SideBar({ sideBarState, setSideBarState }: Props) {
             <DarkThemeIcon />
           </div>
           <button
-            className="flex w-full items-center gap-3.5 py-3.5 pl-2"
+            className="flex w-full items-center gap-3.5 py-3.5 pl-2 transition-opacity duration-200 hover:opacity-60"
             onClick={() => setSideBarState('close')}
             aria-label="Hide Sidebar"
             title="Hide Sidebar"

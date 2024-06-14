@@ -22,7 +22,7 @@ export default function BoardHeader({ sideBarState }: Props) {
         <Logo theme={theme} />
       </div>
 
-      <h1 className="text-xl font-bold text-card-header">Platform Launch</h1>
+      <h1 className="text-2xl font-bold text-card-header">Platform Launch</h1>
       <Button className="ml-auto mr-6" disabled={false}>
         + Add New Column
       </Button>

@@ -21,7 +21,7 @@
     --primary-foreground: 0 0% 100%;
     --primary-hover: 242 100% 82%;
 
-    --secondary: 0 0% 100%;
+    --secondary: 0 0% 100%; /*white */
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -40,6 +40,7 @@
     --radius: 0.5rem;
   }
 
+  /* This works because of CSS Cascading nature - when .dark gets applied on the root it replace all the custom properties with this one */
   .dark {
     --background: 237 100% 4;
     --foreground: 216 15% 57%;

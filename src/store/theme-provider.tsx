@@ -27,10 +27,11 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
     const storedTheme = localStorage.getItem(storageKey);
-    const prefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)',
-    ).matches;
-    return (storedTheme || prefersDark ? 'dark' : 'light') as Theme;
+    const systemDefault = window.matchMedia('(prefers-color-scheme: dark)')
+      .matches
+      ? 'dark'
+      : 'light';
+    return (storedTheme || systemDefault) as Theme;
   });
 
   useEffect(() => {

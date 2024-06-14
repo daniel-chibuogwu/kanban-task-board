@@ -14,7 +14,7 @@ module.exports = {
       sm: ['0.8125rem', '1.4375rem'], // 13px , 23px
       base: ['0.9375rem', '1.1875rem'], // 15px , 19px
       lg: ['1.125rem', '1.4375rem'], // 18px , 23px
-      xl: ['1.5rem', '1.875rem'], // 24px , 30px
+      '2xl': ['1.5rem', '1.875rem'], // 24px , 30px
     },
     container: {
       center: true,
@@ -59,6 +59,7 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
           header: 'hsl(var(--card-header))',
+          shadow: 'hsl(var(--card-shadow))',
         },
       },
       borderRadius: {
