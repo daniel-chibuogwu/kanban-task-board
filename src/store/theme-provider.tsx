@@ -25,13 +25,13 @@ export function ThemeProvider({
   storageKey = 'kanban-theme',
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () =>
-      (localStorage.getItem(storageKey) ||
-      window.matchMedia('(prefers-color-scheme: dark)').matches // Taking care of user system preferences as the default before setting it manually
-        ? 'dark'
-        : 'light') as Theme,
-  );
+  const [theme, setTheme] = useState<Theme>(() => {
+    const storedTheme = localStorage.getItem(storageKey);
+    const prefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)',
+    ).matches;
+    return (storedTheme || prefersDark ? 'dark' : 'light') as Theme;
+  });
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -40,6 +40,21 @@ export function ThemeProvider({
 
     root.classList.add(theme);
   }, [theme]);
+  // Automatically toogle light or dark mode based on users preferences
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setTheme(event.matches ? 'dark' : 'light');
+      console.log(event, 'media query don change oo!');
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
 
   const value = {
     theme,
