@@ -39,7 +39,7 @@ export function SideBar({ sideBarState, setSideBarState }: Props) {
   return (
     <aside
       className={cn(
-        'h-screen w-[300px] border-r border-border bg-secondary py-8 pr-6 transition-[margin] duration-700 ease-in-out',
+        'h-screen w-[300px] overflow-auto border-r border-border bg-secondary py-8 pr-6 transition-[margin] duration-700 ease-in-out',
         { '-ml-[300px]': !sideBarIsOpen },
       )}
       style={{ transitionTimingFunction: 'cubic-bezier(0.65, 0.05, 0.36, 1)' }}
@@ -56,8 +56,10 @@ export function SideBar({ sideBarState, setSideBarState }: Props) {
         </div>
 
         {/* Nav links */}
-        <div className="mt-14">
-          <p className="ms-8 text-xs tracking-[2.5px]">ALL BOARDS (3)</p>
+        <nav className="mt-14">
+          <p role="heading" className="ms-8 text-xs tracking-[2.5px]">
+            ALL BOARDS (3)
+          </p>
           <ul className="mt-5 text-base">
             {boards.map(board => (
               <li key={board.title} className="last:text-primary">
@@ -82,18 +84,22 @@ export function SideBar({ sideBarState, setSideBarState }: Props) {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
         {/* Hide side bar and Toggle light/dark mode */}
         <div className="ms-6 space-y-2 self-end">
           <div className="flex items-center justify-center gap-6 rounded-lg bg-background py-3.5">
-            <LightThemeIcon />
+            <span aria-label="Switch to light mode" title="Light Mode">
+              <LightThemeIcon />
+            </span>
             <Switch
               checked={theme === 'dark'}
               onCheckedChange={() =>
                 setTheme(theme === 'dark' ? 'light' : 'dark')
               }
             />
-            <DarkThemeIcon />
+            <span aria-label="Switch to dark mode" title="Dark Mode">
+              <DarkThemeIcon />
+            </span>
           </div>
           <button
             className="flex w-full items-center gap-3.5 py-3.5 pl-2 transition-opacity duration-200 hover:opacity-80"

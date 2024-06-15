@@ -14,9 +14,12 @@ export default function Board({ sideBarState }: Props) {
   const hasColumns = DATA.boards[3]?.columns?.length > 0;
 
   return (
-    <main className="relative z-20 flex h-svh flex-1 flex-col overflow-auto bg-background">
+    <div
+      role="presentation"
+      className="flex h-svh flex-1 flex-col overflow-auto bg-background"
+    >
       <BoardHeader sideBarState={sideBarState} />
       {hasColumns ? <BoardColumns /> : <BoardEmptyView />}
-    </main>
+    </div>
   );
 }

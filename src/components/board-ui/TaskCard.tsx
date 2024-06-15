@@ -14,7 +14,8 @@ export function TaskCard({ task, columnNumber }: Props) {
   return (
     <article
       role="button"
-      className="group/underline space-y-2 rounded-lg bg-secondary px-4 py-6 shadow-[0_4px_6px_rgba(54,78,126,0.1)] dark:shadow-[0_4px_6px_rgba(54,8,126,0.1)] "
+      tabIndex={0}
+      className="group/underline space-y-2 rounded-lg bg-secondary px-4 py-6 shadow-[0_4px_6px_rgba(54,78,126,0.1)] ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 dark:shadow-[0_4px_6px_rgba(54,8,126,0.1)]"
     >
       <h3 className="line-clamp-3 text-base text-card-header">
         <span
