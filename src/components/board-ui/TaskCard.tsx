@@ -19,7 +19,7 @@ export function TaskCard({ task, columnNumber }: Props) {
       <h3 className="line-clamp-3 text-base text-card-header">
         <span
           className={cn(
-            'bg-gradient-to-r from-60% to-secondary bg-[length:0%_3px] bg-[left_top_105%] bg-no-repeat transition-[background-size] duration-500 ease-in-out group-hover/underline:bg-[length:100%_3px]',
+            'bg-gradient-to-r from-60% to-secondary bg-[length:0%_3px] bg-[left_top_102%] bg-no-repeat transition-[background-size] duration-500 ease-in-out group-hover/underline:bg-[length:100%_3px]',
             { 'from-column-1': columnNumber === 1 },
             { 'from-column-2': columnNumber === 2 },
             { 'from-column-3': columnNumber === 3 },

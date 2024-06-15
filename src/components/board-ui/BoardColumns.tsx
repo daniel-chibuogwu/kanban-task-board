@@ -9,7 +9,7 @@ export default function BoardColumns() {
         <section key={col.name}>
           <h2
             className={cn(
-              'inline-flex items-center py-6 text-xs uppercase tracking-[2.4px] before:mr-3 before:block before:size-[15px] before:rounded-full',
+              'inline-flex w-full items-center bg-background py-6 text-xs uppercase tracking-[2.4px] before:mr-3 before:block before:size-[15px] before:rounded-full',
               {
                 'before:bg-column-1': i === 0,
               },
