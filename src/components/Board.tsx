@@ -1,23 +1,22 @@
-import { Button } from '@/components/ui/Button';
-import BoardHeader from '@/components/BoardHeader';
+import { SideBarState } from '@/lib/types';
+
+import DATA from '../../dev-data/data.json';
+
+import BoardHeader from '@/components/board-ui/BoardHeader';
+import BoardColumns from '@/components/board-ui/BoardColumns';
+import BoardEmptyView from '@/components/board-ui/BoardEmptyView';
 
 type Props = {
-  showSideBar: boolean;
-  setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
+  sideBarState: SideBarState;
 };
 
-export default function Board({ showSideBar, setShowSideBar }: Props) {
+export default function Board({ sideBarState }: Props) {
+  const hasColumns = DATA.boards[3]?.columns?.length > 0;
+
   return (
     <main className="relative z-20 flex h-svh flex-1 flex-col overflow-auto bg-background">
-      <BoardHeader showSideBar={showSideBar} />
-      <div className="grid flex-1 place-content-center">
-        <div className="flex flex-col items-center justify-center">
-          <p className="text-center text-lg text-foreground">
-            This board is empty. Create a new column to get started.
-          </p>
-          <Button className="mt-8">+ Add New Column</Button>
-        </div>
-      </div>
+      <BoardHeader sideBarState={sideBarState} />
+      {hasColumns ? <BoardColumns /> : <BoardEmptyView />}
     </main>
   );
 }
