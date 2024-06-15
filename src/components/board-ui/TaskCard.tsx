@@ -14,12 +14,12 @@ export function TaskCard({ task, columnNumber }: Props) {
   return (
     <article
       role="button"
-      className="group/underline space-y-2 rounded-lg bg-white px-4 py-6 shadow-[0_4px_6px_rgba(54,78,126,0.1)]"
+      className="group/underline space-y-2 rounded-lg bg-secondary px-4 py-6 shadow-[0_4px_6px_rgba(54,78,126,0.1)] dark:shadow-[0_4px_6px_rgba(54,8,126,0.1)] "
     >
       <h3 className="line-clamp-3 text-base text-card-header">
         <span
           className={cn(
-            'bg-gradient-to-r from-60% to-white bg-[length:0%_3px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 ease-in-out group-hover/underline:bg-[length:100%_3px]',
+            'bg-gradient-to-r from-60% to-secondary bg-[length:0%_3px] bg-[left_top_105%] bg-no-repeat transition-[background-size] duration-500 ease-in-out group-hover/underline:bg-[length:100%_3px]',
             { 'from-column-1': columnNumber === 1 },
             { 'from-column-2': columnNumber === 2 },
             { 'from-column-3': columnNumber === 3 },
