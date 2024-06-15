@@ -62,9 +62,9 @@ module.exports = {
           shadow: 'hsl(var(--card-shadow))',
         },
         column: {
-          1: 'hsl(var(--first-column))',
-          2: 'hsl(var(--second-column))',
-          3: 'hsl(var(--third-column))',
+          1: 'hsl(var(--column-1))',
+          2: 'hsl(var(--column-2))',
+          3: 'hsl(var(--column-3))',
         },
       },
       borderRadius: {

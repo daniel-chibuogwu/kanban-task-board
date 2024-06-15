@@ -10,7 +10,7 @@ export default function BoardColumns() {
           <h2
             role="columnheader"
             className={cn(
-              'sticky top-24 inline-flex w-full items-center bg-background py-6 text-xs uppercase tracking-[2.4px] before:mr-3 before:block before:size-[15px] before:rounded-full',
+              'sticky top-[var(--desktop-header-height)] inline-flex w-full items-center bg-background py-6 text-xs uppercase tracking-[2.4px] before:mr-3 before:block before:size-[15px] before:rounded-full',
               {
                 'before:bg-column-1': i === 0,
               },
@@ -42,7 +42,7 @@ export default function BoardColumns() {
       <section className="flex flex-col">
         <h2
           aria-hidden="true"
-          className="sticky top-24 bg-background py-6 text-xs text-transparent"
+          className="sticky top-[var(--desktop-header-height)] bg-background py-6 text-xs text-transparent"
         >
           <span>Add new column</span>
         </h2>

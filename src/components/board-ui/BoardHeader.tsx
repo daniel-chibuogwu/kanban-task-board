@@ -12,7 +12,7 @@ type Props = {
 export default function BoardHeader({ sideBarState }: Props) {
   const { theme } = useTheme();
   return (
-    <header className="sticky inset-x-0 top-0 flex h-24 shrink-0 items-center border-b border-b-border bg-secondary pl-6 pr-8">
+    <header className="sticky inset-x-0 top-0 flex h-[var(--desktop-header-height)] shrink-0 items-center border-b border-b-border bg-secondary pl-6 pr-8">
       <div
         className={cn(
           'mr-8 flex h-full items-center border-r border-border pr-8',

@@ -6,7 +6,13 @@
   :root {
     font-family: 'Plus Jakarta Sans', sans-serif;
 
-    /* For Shadcn/ui */
+    --desktop-header-height: 85px;
+
+    --column-1: 193 75% 59%;
+    --column-2: 249 83% 70%;
+    --column-3: 154 68% 64%;
+
+    /* Light Mode */
     --background: 220 69% 97%;
     --foreground: 216 15% 57%;
 
@@ -38,10 +44,6 @@
     --ring: 242 48% 58%;
 
     --radius: 0.5rem;
-
-    --first-column: 193 75% 59%;
-    --second-column: 249 83% 70%;
-    --third-column: 154 68% 64%;
   }
 
   /* This works because of CSS Cascading nature - when .dark gets applied on the root it replace all the custom properties with this one */
